@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Control Login</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .background {
+            background-image: url('diet2.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: rgba(213, 207, 207, 0.5); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.7); /* Semi-transparent input background */
+        }
+
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #4CAF50;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .login-container a {
+            display: block;
+            margin-top: 10px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="login-container">
+            <h2>Login to Diet Control</h2>
+            <form id="loginForm" action="login_action.php" method="get">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="submit" value="Login">
+            </form>
+            <a href="#" id="registerLink">Create a new account</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === '1234') 
+            (username==='poojitha' && password === '123456')
+        (username === 'radhika' && password === '12345678')
+            {
+                alert('Login successful!');
+                // Redirect to the dashboard or home page
+                window.location.href = 'home2.html';
+                window.location.href = 'profile page.html'; // Replace with your actual redirection URL
+            } else {
+                alert('Incorrect username or password');
+            }
+        });
+
+        document.getElementById('registerLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            // Redirect to the registration page
+            window.location.href = '/register'; // Replace with your actual registration page URL
+        });
+    </script>
+</body>
+</html>

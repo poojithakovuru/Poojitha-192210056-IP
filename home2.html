@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Control Home</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .background {
+            background-image: url('diet2.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .create-profile {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .create-profile:hover {
+            background-color: #45a049;
+        }
+
+        .options-container {
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .options-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .options-container .option {
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .workout-type {
+            position: absolute;
+            top: 100px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .timer-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .timer-container h2 {
+            margin: 0 0 10px 0;
+        }
+
+        .timer-container button {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .timer-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <a href="/profile" class="create-profile">Create Profile</a>
+        <div class="workout-type">
+            <h3>Workout Types</h3>
+            <p>Cardio</p>
+            <p>Strength Training</p>
+            <p>Flexibility</p>
+        </div>
+        <div class="options-container">
+            <h1>Welcome to Diet Control</h1>
+            <div class="option">
+                <h2>Food Plan</h2>
+                <p>Get a customized food plan tailored to your dietary needs.</p>
+            </div>
+            <div class="option">
+                <h2>Workout Plan</h2>
+                <p>Find the best workout plan to achieve your fitness goals.</p>
+            </div>
+        </div>
+        <div class="timer-container">
+            <h2>Timer</h2>
+            <div id="timer">00:00:00</div>
+            <button onclick="startTimer()">Start</button>
+        </div>
+    </div>
+
+    <script>
+        let timerInterval;
+        let elapsedSeconds = 0;
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            elapsedSeconds = 0;
+            timerInterval = setInterval(() => {
+                elapsedSeconds++;
+                document.getElementById('timer').innerText = formatTime(elapsedSeconds);
+            }, 1000);
+        }
+
+        function formatTime(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            return `${pad(hours)}:${pad(minutes)}:${pad(secs)}`;
+        }
+
+        function pad(value) {
+            return value.toString().padStart(2, '0');
+        }
+    </script>
+</body>
+</html>
