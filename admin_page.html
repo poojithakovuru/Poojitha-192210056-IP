@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .content h2 {
+            color: #333;
+        }
+
+        .content section {
+            margin-bottom: 20px;
+        }
+
+        .content label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .content input[type="text"],
+        .content input[type="password"],
+        .content textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .content input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .content input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#manage-users">Manage Users</a>
+        <a href="#update-content">Update Content</a>
+        <a href="#change-settings">Change Settings</a>
+        <a href="login.html">Logout</a>
+    </div>
+
+    <div class="content">
+        <section id="manage-users">
+            <h2>Manage Users</h2>
+            <label for="username">Add/Remove User:</label>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="user-password" placeholder="Password">
+            <input type="submit" value="Add User" onclick="addUser()">
+            <input type="submit" value="Remove User" onclick="removeUser()">
+        </section>
+
+        <section id="update-content">
+            <h2>Update Content</h2>
+            <label for="page-content">Page Content:</label>
+            <textarea id="page-content" rows="10" placeholder="Enter new content..."></textarea>
+            <input type="submit" value="Update Content" onclick="updateContent()">
+        </section>
+
+        <section id="change-settings">
+            <h2>Change Settings</h2>
+            <label for="setting">Setting:</label>
+            <input type="text" id="setting" placeholder="Enter setting value">
+            <input type="submit" value="Update Setting" onclick="updateSetting()">
+        </section>
+    </div>
+
+    <script>
+        function addUser() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('user-password').value;
+            alert(`User ${username} added with password ${password}`);
+            // Add logic to communicate with backend to add user
+        }
+
+        function removeUser() {
+            const username = document.getElementById('username').value;
+            alert(`User ${username} removed`);
+            // Add logic to communicate with backend to remove user
+        }
+
+        function updateContent() {
+            const content = document.getElementById('page-content').value;
+            alert('Content updated: ' + content);
+            // Add logic to communicate with backend to update content
+        }
+
+        function updateSetting() {
+            const setting = document.getElementById('setting').value;
+            alert('Setting updated: ' + setting);
+            // Add logic to communicate with backend to update setting
+        }
+    </script>
+</body>
+</html>
